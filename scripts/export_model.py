@@ -26,6 +26,18 @@ Le script lit le registry de la mission 5, donc il tourne dans l'environnement d
     uv run --project "../../5-Initiez-vous au MLOps Partie 1" python scripts/export_model.py
 
 Le registry est lu directement dans sa base SQLite : pas besoin de lancer le serveur MLflow.
+
+## Le prétraitement voyage avec le modèle
+
+Une transformation a lieu **avant** le pipeline sklearn, à l'entraînement : chaque valeur
+sentinelle (`DAYS_EMPLOYED = 365243`, « sans emploi ») devient une valeur manquante, et une
+colonne `<variable>_SENTINELLE` garde la trace du cas. Le pipeline ne la contient pas, donc le
+fichier du modèle ne la porte pas. Oubliée en production, elle ne lève aucune erreur : elle
+change des scores (2 décisions sur 200 inversées, mesuré sur les clients de test).
+
+La règle est donc écrite **dans le manifest**, sous forme de données, comme le seuil. L'API
+l'applique sans la connaître à l'avance ; un modèle réentraîné avec une autre règle l'apporte
+avec lui, sans modifier le code de l'API ni celui de ses appelants.
 """
 
 from __future__ import annotations
@@ -43,6 +55,7 @@ import mlflow
 import sklearn
 import skops
 import yaml
+from ml.config import SENTINELLES  # la règle de l'entraînement, lue à la source
 
 RACINE = Path(__file__).resolve().parents[1]
 MISSION5 = RACINE.parents[1] / "5-Initiez-vous au MLOps Partie 1"
@@ -77,6 +90,11 @@ def exporter(tracking_uri: str, sortie: Path) -> dict:
 
     info = mlflow.models.get_model_info(f"models:/{NOM}@{ALIAS}")
     entrees = info.signature.inputs.to_dict()
+    noms = [c["name"] for c in entrees]
+    calculees = [f"{col}_SENTINELLE" for col in SENTINELLES]
+    manquantes = [c for c in [*SENTINELLES, *calculees] if c not in noms]
+    if manquantes:
+        raise RuntimeError(f"règle de prétraitement incohérente avec la signature : {manquantes}")
 
     manifest = {
         "nom": NOM,
@@ -106,6 +124,12 @@ def exporter(tracking_uri: str, sortie: Path) -> dict:
         # Le contrat d'entrée tel que le registry l'a enregistré : nom et type de chaque colonne,
         # dans l'ordre. L'API construit son schéma de validation à partir de cette liste.
         "entrees": [{"nom": c["name"], "type": c["type"]} for c in entrees],
+        # Appliqué par l'API avant le modèle. Les colonnes calculées font partie des entrées du
+        # modèle mais pas du contrat de l'API : un appelant qui les enverrait est refusé.
+        "pretraitement": {
+            "sentinelles": {col: val for col, val in SENTINELLES.items()},
+            "colonnes_calculees": calculees,
+        },
         "exporte_le": datetime.now(UTC).isoformat(timespec="seconds"),
     }
     (sortie / "manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n")

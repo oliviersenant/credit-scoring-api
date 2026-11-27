@@ -1822,5 +1822,13 @@
       "type": "integer"
     }
   ],
-  "exporte_le": "2026-11-27T09:34:15+00:00"
+  "pretraitement": {
+    "sentinelles": {
+      "DAYS_EMPLOYED": 365243
+    },
+    "colonnes_calculees": [
+      "DAYS_EMPLOYED_SENTINELLE"
+    ]
+  },
+  "exporte_le": "2026-11-27T09:41:43+00:00"
 }
