@@ -1,0 +1,25 @@
+# --- Données Home Credit : jamais dans l'historique Git ni dans l'image ---
+# La licence de la compétition Kaggle n'en autorise pas la redistribution.
+data/
+*.csv
+*.parquet
+
+# --- Secrets ---
+.env
+*.pem
+*.key
+
+# --- Environnement Python ---
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# --- Notebooks ---
+.ipynb_checkpoints/
+
+# --- Résultats de profilage et de bancs d'essai bruts ---
+*.prof

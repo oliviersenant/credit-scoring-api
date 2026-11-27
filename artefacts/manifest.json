@@ -1,0 +1,1826 @@
+{
+  "nom": "credit-scoring",
+  "alias": "champion",
+  "version": 3,
+  "run_id": "cb494a1da59e46f887eb31f04ea2faca",
+  "model_id": "m-0111d48729214bffba6b8a970825e3ae",
+  "seuil_decision": 0.08,
+  "metriques": {
+    "cout_par_client": 0.4985,
+    "auc": 0.7806
+  },
+  "entrainement": {
+    "n_lignes": 307511,
+    "version_features": "features_enrichies_auditees",
+    "famille": "lightgbm"
+  },
+  "fichier": {
+    "nom": "model.skops",
+    "sha256": "b3dcf38eb08d8c176590936b8c9f984416f5696a9f5b4e02990883f4f3037f45",
+    "octets": 3003978
+  },
+  "skops_trusted_types": [
+    "numpy.dtype",
+    "collections.OrderedDict",
+    "lightgbm.basic.Booster",
+    "lightgbm.sklearn.LGBMClassifier"
+  ],
+  "versions": {
+    "python": "3.13.9",
+    "scikit-learn": "1.9.0",
+    "lightgbm": "4.7.0",
+    "skops": "0.14.0",
+    "mlflow": "3.16.0"
+  },
+  "entrees": [
+    {
+      "nom": "NAME_CONTRACT_TYPE",
+      "type": "string"
+    },
+    {
+      "nom": "CODE_GENDER",
+      "type": "string"
+    },
+    {
+      "nom": "FLAG_OWN_CAR",
+      "type": "string"
+    },
+    {
+      "nom": "FLAG_OWN_REALTY",
+      "type": "string"
+    },
+    {
+      "nom": "CNT_CHILDREN",
+      "type": "float"
+    },
+    {
+      "nom": "AMT_INCOME_TOTAL",
+      "type": "float"
+    },
+    {
+      "nom": "AMT_CREDIT",
+      "type": "float"
+    },
+    {
+      "nom": "AMT_ANNUITY",
+      "type": "float"
+    },
+    {
+      "nom": "NAME_TYPE_SUITE",
+      "type": "string"
+    },
+    {
+      "nom": "NAME_INCOME_TYPE",
+      "type": "string"
+    },
+    {
+      "nom": "NAME_EDUCATION_TYPE",
+      "type": "string"
+    },
+    {
+      "nom": "NAME_FAMILY_STATUS",
+      "type": "string"
+    },
+    {
+      "nom": "NAME_HOUSING_TYPE",
+      "type": "string"
+    },
+    {
+      "nom": "REGION_POPULATION_RELATIVE",
+      "type": "float"
+    },
+    {
+      "nom": "DAYS_BIRTH",
+      "type": "float"
+    },
+    {
+      "nom": "DAYS_EMPLOYED",
+      "type": "double"
+    },
+    {
+      "nom": "DAYS_REGISTRATION",
+      "type": "float"
+    },
+    {
+      "nom": "DAYS_ID_PUBLISH",
+      "type": "float"
+    },
+    {
+      "nom": "OWN_CAR_AGE",
+      "type": "float"
+    },
+    {
+      "nom": "FLAG_WORK_PHONE",
+      "type": "float"
+    },
+    {
+      "nom": "FLAG_CONT_MOBILE",
+      "type": "float"
+    },
+    {
+      "nom": "FLAG_PHONE",
+      "type": "float"
+    },
+    {
+      "nom": "FLAG_EMAIL",
+      "type": "float"
+    },
+    {
+      "nom": "OCCUPATION_TYPE",
+      "type": "string"
+    },
+    {
+      "nom": "CNT_FAM_MEMBERS",
+      "type": "float"
+    },
+    {
+      "nom": "REGION_RATING_CLIENT",
+      "type": "float"
+    },
+    {
+      "nom": "REGION_RATING_CLIENT_W_CITY",
+      "type": "float"
+    },
+    {
+      "nom": "WEEKDAY_APPR_PROCESS_START",
+      "type": "string"
+    },
+    {
+      "nom": "HOUR_APPR_PROCESS_START",
+      "type": "float"
+    },
+    {
+      "nom": "REG_REGION_NOT_LIVE_REGION",
+      "type": "float"
+    },
+    {
+      "nom": "REG_REGION_NOT_WORK_REGION",
+      "type": "float"
+    },
+    {
+      "nom": "LIVE_REGION_NOT_WORK_REGION",
+      "type": "float"
+    },
+    {
+      "nom": "REG_CITY_NOT_LIVE_CITY",
+      "type": "float"
+    },
+    {
+      "nom": "REG_CITY_NOT_WORK_CITY",
+      "type": "float"
+    },
+    {
+      "nom": "LIVE_CITY_NOT_WORK_CITY",
+      "type": "float"
+    },
+    {
+      "nom": "ORGANIZATION_TYPE",
+      "type": "string"
+    },
+    {
+      "nom": "EXT_SOURCE_1",
+      "type": "float"
+    },
+    {
+      "nom": "EXT_SOURCE_2",
+      "type": "float"
+    },
+    {
+      "nom": "EXT_SOURCE_3",
+      "type": "float"
+    },
+    {
+      "nom": "APARTMENTS_AVG",
+      "type": "float"
+    },
+    {
+      "nom": "BASEMENTAREA_AVG",
+      "type": "float"
+    },
+    {
+      "nom": "YEARS_BEGINEXPLUATATION_AVG",
+      "type": "float"
+    },
+    {
+      "nom": "YEARS_BUILD_AVG",
+      "type": "float"
+    },
+    {
+      "nom": "COMMONAREA_AVG",
+      "type": "float"
+    },
+    {
+      "nom": "ELEVATORS_AVG",
+      "type": "float"
+    },
+    {
+      "nom": "ENTRANCES_AVG",
+      "type": "float"
+    },
+    {
+      "nom": "FLOORSMAX_AVG",
+      "type": "float"
+    },
+    {
+      "nom": "FLOORSMIN_AVG",
+      "type": "float"
+    },
+    {
+      "nom": "LANDAREA_AVG",
+      "type": "float"
+    },
+    {
+      "nom": "LIVINGAREA_AVG",
+      "type": "float"
+    },
+    {
+      "nom": "NONLIVINGAPARTMENTS_AVG",
+      "type": "float"
+    },
+    {
+      "nom": "NONLIVINGAREA_AVG",
+      "type": "float"
+    },
+    {
+      "nom": "FONDKAPREMONT_MODE",
+      "type": "string"
+    },
+    {
+      "nom": "HOUSETYPE_MODE",
+      "type": "string"
+    },
+    {
+      "nom": "TOTALAREA_MODE",
+      "type": "float"
+    },
+    {
+      "nom": "WALLSMATERIAL_MODE",
+      "type": "string"
+    },
+    {
+      "nom": "EMERGENCYSTATE_MODE",
+      "type": "string"
+    },
+    {
+      "nom": "OBS_30_CNT_SOCIAL_CIRCLE",
+      "type": "float"
+    },
+    {
+      "nom": "DEF_30_CNT_SOCIAL_CIRCLE",
+      "type": "float"
+    },
+    {
+      "nom": "DEF_60_CNT_SOCIAL_CIRCLE",
+      "type": "float"
+    },
+    {
+      "nom": "DAYS_LAST_PHONE_CHANGE",
+      "type": "float"
+    },
+    {
+      "nom": "FLAG_DOCUMENT_3",
+      "type": "float"
+    },
+    {
+      "nom": "FLAG_DOCUMENT_5",
+      "type": "float"
+    },
+    {
+      "nom": "FLAG_DOCUMENT_6",
+      "type": "float"
+    },
+    {
+      "nom": "FLAG_DOCUMENT_8",
+      "type": "float"
+    },
+    {
+      "nom": "FLAG_DOCUMENT_9",
+      "type": "float"
+    },
+    {
+      "nom": "FLAG_DOCUMENT_11",
+      "type": "float"
+    },
+    {
+      "nom": "FLAG_DOCUMENT_13",
+      "type": "float"
+    },
+    {
+      "nom": "FLAG_DOCUMENT_14",
+      "type": "float"
+    },
+    {
+      "nom": "FLAG_DOCUMENT_15",
+      "type": "float"
+    },
+    {
+      "nom": "FLAG_DOCUMENT_16",
+      "type": "float"
+    },
+    {
+      "nom": "FLAG_DOCUMENT_18",
+      "type": "float"
+    },
+    {
+      "nom": "AMT_REQ_CREDIT_BUREAU_HOUR",
+      "type": "float"
+    },
+    {
+      "nom": "AMT_REQ_CREDIT_BUREAU_DAY",
+      "type": "float"
+    },
+    {
+      "nom": "AMT_REQ_CREDIT_BUREAU_WEEK",
+      "type": "float"
+    },
+    {
+      "nom": "AMT_REQ_CREDIT_BUREAU_MON",
+      "type": "float"
+    },
+    {
+      "nom": "AMT_REQ_CREDIT_BUREAU_QRT",
+      "type": "float"
+    },
+    {
+      "nom": "AMT_REQ_CREDIT_BUREAU_YEAR",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_COMPTE",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_DAYS_CREDIT_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_DAYS_CREDIT_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_DAYS_CREDIT_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_DAYS_CREDIT_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_DAYS_CREDIT_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_CREDIT_DAY_OVERDUE_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_CREDIT_DAY_OVERDUE_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_DAYS_CREDIT_ENDDATE_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_DAYS_CREDIT_ENDDATE_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_DAYS_CREDIT_ENDDATE_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_DAYS_CREDIT_ENDDATE_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_DAYS_CREDIT_ENDDATE_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_DAYS_ENDDATE_FACT_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_DAYS_ENDDATE_FACT_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_DAYS_ENDDATE_FACT_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_DAYS_ENDDATE_FACT_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_DAYS_ENDDATE_FACT_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_AMT_CREDIT_MAX_OVERDUE_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_AMT_CREDIT_MAX_OVERDUE_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_AMT_CREDIT_MAX_OVERDUE_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_CNT_CREDIT_PROLONG_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_CNT_CREDIT_PROLONG_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_CNT_CREDIT_PROLONG_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_CNT_CREDIT_PROLONG_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_AMT_CREDIT_SUM_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_AMT_CREDIT_SUM_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_AMT_CREDIT_SUM_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_AMT_CREDIT_SUM_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_AMT_CREDIT_SUM_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_AMT_CREDIT_SUM_DEBT_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_AMT_CREDIT_SUM_DEBT_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_AMT_CREDIT_SUM_DEBT_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_AMT_CREDIT_SUM_DEBT_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_AMT_CREDIT_SUM_LIMIT_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_AMT_CREDIT_SUM_LIMIT_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_AMT_CREDIT_SUM_LIMIT_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_AMT_CREDIT_SUM_LIMIT_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_AMT_CREDIT_SUM_OVERDUE_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_AMT_CREDIT_SUM_OVERDUE_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_AMT_CREDIT_SUM_OVERDUE_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_DAYS_CREDIT_UPDATE_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_DAYS_CREDIT_UPDATE_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_DAYS_CREDIT_UPDATE_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_DAYS_CREDIT_UPDATE_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_DAYS_CREDIT_UPDATE_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_AMT_ANNUITY_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_AMT_ANNUITY_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_AMT_ANNUITY_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_AMT_ANNUITY_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_COMPTE_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_COMPTE_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_COMPTE_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_COMPTE_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_COMPTE_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_MONTHS_BALANCE_MAX_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_MONTHS_BALANCE_MAX_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_MONTHS_BALANCE_MAX_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_MONTHS_BALANCE_MAX_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_MONTHS_BALANCE_MAX_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_MONTHS_BALANCE_MEAN_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_MONTHS_BALANCE_MEAN_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_MONTHS_BALANCE_MEAN_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_MONTHS_BALANCE_SUM_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_MONTHS_BALANCE_SUM_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_MONTHS_BALANCE_SUM_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_MONTHS_BALANCE_SUM_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_MONTHS_BALANCE_VAR_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_MONTHS_BALANCE_VAR_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_STATUS_0_PART_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_STATUS_0_PART_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_STATUS_0_PART_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_STATUS_0_PART_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_STATUS_0_PART_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_STATUS_1_PART_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_STATUS_1_PART_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_STATUS_1_PART_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_STATUS_1_PART_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_STATUS_1_PART_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_STATUS_C_PART_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_STATUS_C_PART_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_STATUS_C_PART_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_STATUS_C_PART_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_STATUS_C_PART_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_STATUS_X_PART_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_STATUS_X_PART_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_STATUS_X_PART_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_STATUS_X_PART_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_STATUS_X_PART_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_STATUS_RARE_PART_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_STATUS_RARE_PART_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_STATUS_RARE_PART_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_STATUS_RARE_PART_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_BB_STATUS_RARE_PART_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_CREDIT_ACTIVE_ACTIVE_PART",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_CREDIT_ACTIVE_RARE_PART",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_CREDIT_CURRENCY_CURRENCY_1_PART",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_CREDIT_TYPE_CAR_LOAN_PART",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_CREDIT_TYPE_CONSUMER_CREDIT_PART",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_CREDIT_TYPE_CREDIT_CARD_PART",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_CREDIT_TYPE_MICROLOAN_PART",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_CREDIT_TYPE_MORTGAGE_PART",
+      "type": "float"
+    },
+    {
+      "nom": "BURO_CREDIT_TYPE_RARE_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_COMPTE",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_AMT_ANNUITY_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_AMT_ANNUITY_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_AMT_ANNUITY_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_AMT_ANNUITY_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_AMT_ANNUITY_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_AMT_APPLICATION_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_AMT_APPLICATION_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_AMT_APPLICATION_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_AMT_APPLICATION_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_AMT_APPLICATION_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_AMT_DOWN_PAYMENT_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_AMT_DOWN_PAYMENT_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_AMT_DOWN_PAYMENT_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_AMT_DOWN_PAYMENT_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_AMT_DOWN_PAYMENT_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_AMT_GOODS_PRICE_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_AMT_GOODS_PRICE_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_HOUR_APPR_PROCESS_START_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_HOUR_APPR_PROCESS_START_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_HOUR_APPR_PROCESS_START_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_HOUR_APPR_PROCESS_START_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NFLAG_LAST_APPL_IN_DAY_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NFLAG_LAST_APPL_IN_DAY_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_RATE_DOWN_PAYMENT_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_RATE_DOWN_PAYMENT_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_RATE_DOWN_PAYMENT_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_RATE_DOWN_PAYMENT_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_RATE_DOWN_PAYMENT_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_RATE_INTEREST_PRIMARY_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_RATE_INTEREST_PRIVILEGED_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_DAYS_DECISION_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_DAYS_DECISION_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_DAYS_DECISION_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_DAYS_DECISION_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_DAYS_DECISION_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_SELLERPLACE_AREA_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_SELLERPLACE_AREA_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_SELLERPLACE_AREA_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_CNT_PAYMENT_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_CNT_PAYMENT_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_CNT_PAYMENT_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_CNT_PAYMENT_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_CNT_PAYMENT_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_DAYS_FIRST_DRAWING_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_DAYS_FIRST_DRAWING_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_DAYS_FIRST_DRAWING_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_DAYS_FIRST_DRAWING_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_DAYS_FIRST_DUE_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_DAYS_FIRST_DUE_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_DAYS_FIRST_DUE_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_DAYS_LAST_DUE_1ST_VERSION_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_DAYS_LAST_DUE_1ST_VERSION_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_DAYS_LAST_DUE_1ST_VERSION_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_DAYS_LAST_DUE_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_DAYS_LAST_DUE_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_DAYS_LAST_DUE_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_DAYS_LAST_DUE_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_DAYS_LAST_DUE_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_DAYS_TERMINATION_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_DAYS_TERMINATION_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_DAYS_TERMINATION_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_DAYS_TERMINATION_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_DAYS_TERMINATION_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NFLAG_INSURED_ON_APPROVAL_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NFLAG_INSURED_ON_APPROVAL_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NFLAG_INSURED_ON_APPROVAL_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NFLAG_INSURED_ON_APPROVAL_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NFLAG_INSURED_ON_APPROVAL_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_CONTRACT_TYPE_CASH_LOANS_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_CONTRACT_TYPE_CONSUMER_LOANS_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_CONTRACT_TYPE_REVOLVING_LOANS_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_WEEKDAY_APPR_PROCESS_START_FRIDAY_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_WEEKDAY_APPR_PROCESS_START_MONDAY_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_WEEKDAY_APPR_PROCESS_START_SATURDAY_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_WEEKDAY_APPR_PROCESS_START_SUNDAY_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_WEEKDAY_APPR_PROCESS_START_THURSDAY_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_WEEKDAY_APPR_PROCESS_START_TUESDAY_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_WEEKDAY_APPR_PROCESS_START_WEDNESDAY_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_FLAG_LAST_APPL_PER_CONTRACT_N_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_CASH_LOAN_PURPOSE_OTHER_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_CASH_LOAN_PURPOSE_REPAIRS_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_CASH_LOAN_PURPOSE_URGENT_NEEDS_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_CASH_LOAN_PURPOSE_XNA_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_CASH_LOAN_PURPOSE_RARE_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_CONTRACT_STATUS_APPROVED_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_CONTRACT_STATUS_CANCELED_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_CONTRACT_STATUS_REFUSED_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_CONTRACT_STATUS_UNUSED_OFFER_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_PAYMENT_TYPE_CASH_THROUGH_THE_BANK_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_PAYMENT_TYPE_RARE_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_CODE_REJECT_REASON_HC_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_CODE_REJECT_REASON_LIMIT_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_CODE_REJECT_REASON_SCO_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_CODE_REJECT_REASON_SCOFR_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_CODE_REJECT_REASON_XAP_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_CODE_REJECT_REASON_RARE_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_TYPE_SUITE_CHILDREN_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_TYPE_SUITE_FAMILY_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_TYPE_SUITE_OTHER_A_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_TYPE_SUITE_OTHER_B_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_TYPE_SUITE_SPOUSE_PARTNER_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_TYPE_SUITE_UNACCOMPANIED_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_TYPE_SUITE_RARE_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_CLIENT_TYPE_NEW_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_CLIENT_TYPE_REFRESHED_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_CLIENT_TYPE_REPEATER_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_CLIENT_TYPE_RARE_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_GOODS_CATEGORY_AUDIO_VIDEO_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_GOODS_CATEGORY_CLOTHING_AND_ACCESSORIES_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_GOODS_CATEGORY_COMPUTERS_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_GOODS_CATEGORY_CONSTRUCTION_MATERIALS_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_GOODS_CATEGORY_CONSUMER_ELECTRONICS_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_GOODS_CATEGORY_FURNITURE_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_GOODS_CATEGORY_MOBILE_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_GOODS_CATEGORY_PHOTO_CINEMA_EQUIPMENT_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_GOODS_CATEGORY_RARE_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_PORTFOLIO_CARDS_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_PORTFOLIO_CASH_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_PORTFOLIO_XNA_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_PORTFOLIO_RARE_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_PRODUCT_TYPE_XNA_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_PRODUCT_TYPE_WALK_IN_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_PRODUCT_TYPE_X_SELL_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_CHANNEL_TYPE_AP_CASH_LOAN_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_CHANNEL_TYPE_CONTACT_CENTER_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_CHANNEL_TYPE_COUNTRY_WIDE_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_CHANNEL_TYPE_CREDIT_AND_CASH_OFFICES_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_CHANNEL_TYPE_REGIONAL_LOCAL_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_CHANNEL_TYPE_STONE_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_CHANNEL_TYPE_RARE_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_SELLER_INDUSTRY_CLOTHING_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_SELLER_INDUSTRY_CONNECTIVITY_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_SELLER_INDUSTRY_CONSTRUCTION_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_SELLER_INDUSTRY_CONSUMER_ELECTRONICS_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_SELLER_INDUSTRY_FURNITURE_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_SELLER_INDUSTRY_INDUSTRY_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_SELLER_INDUSTRY_XNA_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_SELLER_INDUSTRY_RARE_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_YIELD_GROUP_XNA_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_YIELD_GROUP_HIGH_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_YIELD_GROUP_LOW_ACTION_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_YIELD_GROUP_LOW_NORMAL_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_NAME_YIELD_GROUP_MIDDLE_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_PRODUCT_COMBINATION_CARD_STREET_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_PRODUCT_COMBINATION_CARD_X_SELL_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_PRODUCT_COMBINATION_CASH_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_PRODUCT_COMBINATION_CASH_STREET_HIGH_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_PRODUCT_COMBINATION_CASH_STREET_LOW_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_PRODUCT_COMBINATION_CASH_STREET_MIDDLE_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_PRODUCT_COMBINATION_CASH_X_SELL_HIGH_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_PRODUCT_COMBINATION_CASH_X_SELL_LOW_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_PRODUCT_COMBINATION_CASH_X_SELL_MIDDLE_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_PRODUCT_COMBINATION_POS_HOUSEHOLD_WITH_INTEREST_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_PRODUCT_COMBINATION_POS_HOUSEHOLD_WITHOUT_INTEREST_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_PRODUCT_COMBINATION_POS_INDUSTRY_WITH_INTEREST_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_PRODUCT_COMBINATION_POS_INDUSTRY_WITHOUT_INTEREST_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_PRODUCT_COMBINATION_POS_MOBILE_WITH_INTEREST_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_PRODUCT_COMBINATION_POS_MOBILE_WITHOUT_INTEREST_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_PRODUCT_COMBINATION_POS_OTHER_WITH_INTEREST_PART",
+      "type": "float"
+    },
+    {
+      "nom": "PREV_PRODUCT_COMBINATION_RARE_PART",
+      "type": "float"
+    },
+    {
+      "nom": "POS_COMPTE",
+      "type": "float"
+    },
+    {
+      "nom": "POS_MONTHS_BALANCE_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "POS_MONTHS_BALANCE_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "POS_MONTHS_BALANCE_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "POS_MONTHS_BALANCE_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "POS_CNT_INSTALMENT_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "POS_CNT_INSTALMENT_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "POS_CNT_INSTALMENT_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "POS_CNT_INSTALMENT_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "POS_CNT_INSTALMENT_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "POS_CNT_INSTALMENT_FUTURE_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "POS_SK_DPD_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "POS_SK_DPD_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "POS_SK_DPD_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "POS_SK_DPD_DEF_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "POS_NAME_CONTRACT_STATUS_ACTIVE_PART",
+      "type": "float"
+    },
+    {
+      "nom": "POS_NAME_CONTRACT_STATUS_COMPLETED_PART",
+      "type": "float"
+    },
+    {
+      "nom": "POS_NAME_CONTRACT_STATUS_SIGNED_PART",
+      "type": "float"
+    },
+    {
+      "nom": "POS_NAME_CONTRACT_STATUS_RARE_PART",
+      "type": "float"
+    },
+    {
+      "nom": "INST_COMPTE",
+      "type": "float"
+    },
+    {
+      "nom": "INST_NUM_INSTALMENT_VERSION_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "INST_NUM_INSTALMENT_VERSION_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "INST_NUM_INSTALMENT_VERSION_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "INST_NUM_INSTALMENT_VERSION_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "INST_NUM_INSTALMENT_VERSION_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "INST_NUM_INSTALMENT_NUMBER_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "INST_NUM_INSTALMENT_NUMBER_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "INST_NUM_INSTALMENT_NUMBER_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "INST_NUM_INSTALMENT_NUMBER_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "INST_NUM_INSTALMENT_NUMBER_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "INST_DAYS_INSTALMENT_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "INST_DAYS_INSTALMENT_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "INST_DAYS_INSTALMENT_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "INST_DAYS_INSTALMENT_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "INST_DAYS_INSTALMENT_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "INST_AMT_INSTALMENT_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "INST_AMT_INSTALMENT_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "INST_AMT_INSTALMENT_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "INST_AMT_INSTALMENT_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "INST_AMT_INSTALMENT_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "INST_AMT_PAYMENT_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "CC_COMPTE",
+      "type": "float"
+    },
+    {
+      "nom": "CC_MONTHS_BALANCE_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_BALANCE_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_BALANCE_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_BALANCE_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_BALANCE_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_BALANCE_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_CREDIT_LIMIT_ACTUAL_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_CREDIT_LIMIT_ACTUAL_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_CREDIT_LIMIT_ACTUAL_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_CREDIT_LIMIT_ACTUAL_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_CREDIT_LIMIT_ACTUAL_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_DRAWINGS_ATM_CURRENT_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_DRAWINGS_ATM_CURRENT_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_DRAWINGS_ATM_CURRENT_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_DRAWINGS_ATM_CURRENT_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_DRAWINGS_ATM_CURRENT_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_DRAWINGS_CURRENT_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_DRAWINGS_CURRENT_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_DRAWINGS_CURRENT_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_DRAWINGS_CURRENT_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_DRAWINGS_CURRENT_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_DRAWINGS_OTHER_CURRENT_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_DRAWINGS_OTHER_CURRENT_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_DRAWINGS_OTHER_CURRENT_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_DRAWINGS_OTHER_CURRENT_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_DRAWINGS_POS_CURRENT_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_DRAWINGS_POS_CURRENT_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_DRAWINGS_POS_CURRENT_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_DRAWINGS_POS_CURRENT_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_DRAWINGS_POS_CURRENT_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_INST_MIN_REGULARITY_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_INST_MIN_REGULARITY_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_PAYMENT_CURRENT_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_PAYMENT_CURRENT_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_PAYMENT_CURRENT_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_PAYMENT_TOTAL_CURRENT_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_PAYMENT_TOTAL_CURRENT_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_PAYMENT_TOTAL_CURRENT_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "CC_AMT_PAYMENT_TOTAL_CURRENT_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "CC_CNT_DRAWINGS_ATM_CURRENT_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "CC_CNT_DRAWINGS_ATM_CURRENT_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "CC_CNT_DRAWINGS_ATM_CURRENT_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "CC_CNT_DRAWINGS_ATM_CURRENT_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "CC_CNT_DRAWINGS_ATM_CURRENT_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "CC_CNT_DRAWINGS_CURRENT_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "CC_CNT_DRAWINGS_CURRENT_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "CC_CNT_DRAWINGS_CURRENT_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "CC_CNT_DRAWINGS_CURRENT_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "CC_CNT_DRAWINGS_CURRENT_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "CC_CNT_DRAWINGS_OTHER_CURRENT_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "CC_CNT_DRAWINGS_OTHER_CURRENT_MEAN",
+      "type": "float"
+    },
+    {
+      "nom": "CC_CNT_DRAWINGS_OTHER_CURRENT_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "CC_CNT_DRAWINGS_OTHER_CURRENT_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "CC_CNT_DRAWINGS_POS_CURRENT_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "CC_CNT_INSTALMENT_MATURE_CUM_MIN",
+      "type": "float"
+    },
+    {
+      "nom": "CC_CNT_INSTALMENT_MATURE_CUM_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "CC_CNT_INSTALMENT_MATURE_CUM_SUM",
+      "type": "float"
+    },
+    {
+      "nom": "CC_CNT_INSTALMENT_MATURE_CUM_VAR",
+      "type": "float"
+    },
+    {
+      "nom": "CC_SK_DPD_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "CC_SK_DPD_DEF_MAX",
+      "type": "float"
+    },
+    {
+      "nom": "CC_NAME_CONTRACT_STATUS_ACTIVE_PART",
+      "type": "float"
+    },
+    {
+      "nom": "CC_NAME_CONTRACT_STATUS_RARE_PART",
+      "type": "float"
+    },
+    {
+      "nom": "DAYS_EMPLOYED_SENTINELLE",
+      "type": "integer"
+    }
+  ],
+  "exporte_le": "2026-11-27T09:34:15+00:00"
+}
