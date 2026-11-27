@@ -21,6 +21,18 @@ Le modèle rend une **probabilité**, la décision naît du **seuil**. Les deux 
 `artefacts/manifest.json` porte le seuil, la provenance du modèle (version, run d'origine),
 son contrat d'entrée et l'empreinte SHA-256 du fichier.
 
+### Points de vigilance sur le modèle
+
+- **Variables protégées.** `CODE_GENDER` est la 4ᵉ variable la plus importante du modèle, l'âge
+  la 7ᵉ et la situation familiale la 9ᵉ. Un usage réel demanderait un audit d'équité et,
+  probablement, leur retrait.
+- **Dépendance à des scores externes.** 41,8 % de l'importance du modèle repose sur les
+  variables `EXT_SOURCE_*`, des scores fournis par des tiers. Une dérive de leur côté se
+  répercute directement sur nos décisions : ce sont les premières variables surveillées.
+- **Prétraitement hors du modèle.** `DAYS_EMPLOYED = 365243` signifie « sans emploi ». L'API
+  le convertit en valeur manquante et calcule elle-même le drapeau associé, selon la règle
+  écrite dans le manifest. Les appelants envoient les données brutes.
+
 ## Structure
 
 ```
@@ -34,6 +46,12 @@ tests/        tests automatisés
 deploy/       configuration de déploiement
 docs/         documentation
 ```
+
+## Contribuer
+
+`main` est la production : chaque push dessus déploie l'API. Tout changement passe par une
+branche et une Pull Request. Conventions de branches, de commits et de versions :
+[CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Données
 
